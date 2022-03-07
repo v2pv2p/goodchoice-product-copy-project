@@ -25,4 +25,9 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+@font-face {
+  font-family : 'Jalnan';
+  src : url('./assets/fonts/Jalnan.ttf')
+}
 </style>
