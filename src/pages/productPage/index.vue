@@ -1,9 +1,9 @@
 <template>
+  <!--  pc 모바일 여부 class 추가하기-->
   <div class="product-page">
-    여기어때
-    <div class="product-header">
-      수정어때
-    </div>
+    <!--    스크롤 여부 class 추가하기-->
+    <header-component class="header" :isScroll="isScroll"></header-component>
+    <div class="product-content">123데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터데이터</div>
   </div>
 </template>
 
@@ -16,24 +16,39 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     HeaderComponent,
   },
+  computed: {
+
+  },
   data() {
     return {
-      checkBoxData: '',
+      isScroll: false,
     }
   },
-  methods: {}
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+  methods: {
+    onScroll() {
+      this.isScroll = !!document.documentElement.scrollTop
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .product-page {
-  padding: 5px;
-  background-color: #42b983;
-  .product-header {
-    padding: 5px;
-    background-color: bisque;
+  height: 100%;
 
-    font-family: Jalnan;
+  background-color: #42b983;
+
+  .product-content {
+    width: 1024px;
+    height: 5000px;
+
+    margin: 0 auto;
   }
 }
 
