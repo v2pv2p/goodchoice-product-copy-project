@@ -48,6 +48,8 @@ export default {
     align-items: center;
     justify-content: space-between;
 
+    width: 100%;
+
     .header-left {
       font-family: Jalnan;
       font-size: 21px;

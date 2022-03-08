@@ -17,11 +17,11 @@ export default {
     HeaderComponent,
   },
   computed: {
-
   },
   data() {
     return {
       isScroll: false,
+      headerSize: 0
     }
   },
   mounted() {
