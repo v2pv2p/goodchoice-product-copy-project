@@ -4,14 +4,13 @@
     <div class="header-wrapper">
       <div class="header-left">수정어때.</div>
       <div class="header-right">
-        <div class="header-button"></div>
+        <div class="header-button"><span class="icon-search"></span></div>
         <div class="header-button">내주변</div>
         <div class="header-button">예약내역</div>
         <div class="header-button">더보기</div>
         <div class="header-button">로그인</div>
       </div>
     </div>
-
   </div>
 </template>
 
