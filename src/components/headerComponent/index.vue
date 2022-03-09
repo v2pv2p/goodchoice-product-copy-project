@@ -4,7 +4,7 @@
     <div class="header-wrapper">
       <div class="header-left">수정어때.</div>
       <div class="header-right">
-        <div class="header-button"><span class="icon-search"></span></div>
+        <div class="header-button icon-search"></div>
         <div class="header-button">내주변</div>
         <div class="header-button">예약내역</div>
         <div class="header-button">더보기</div>
@@ -50,6 +50,9 @@ export default {
     width: 100%;
 
     .header-left {
+      display: flex;
+      align-items: center;
+
       font-family: Jalnan;
       font-size: 21px;
       color: #fff8f8;
@@ -62,6 +65,9 @@ export default {
       color: #fff8f8;
 
       .header-button {
+        display: flex;
+        align-items: center;
+
         margin: 0 0 0 30px;
       }
     }
@@ -72,6 +78,8 @@ export default {
   .header-component {
     &.is-scroll {
       background: #ffffff;
+
+      box-shadow: 0 2px 3px 0 #e9e9e9;
       .header-left {
         color: #f7323f;
       }
