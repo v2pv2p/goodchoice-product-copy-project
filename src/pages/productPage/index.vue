@@ -247,16 +247,7 @@ export default {
 
             color: #888284;
 
-            input[type="checkbox"] {
-              z-index: -1000;
-              left: -1000px;
-            }
 
-            label.label_chk {
-              width: 21px;
-              background-image: url(//image.goodchoice.kr/images/web_v3/ico_chk.png);
-              background-size: 21px auto;
-            }
           }
         }
       }
