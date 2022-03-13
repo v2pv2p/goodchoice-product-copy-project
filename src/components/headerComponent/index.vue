@@ -56,6 +56,8 @@ export default {
       font-family: Jalnan;
       font-size: 21px;
       color: #fff8f8;
+
+      cursor: pointer;
     }
 
     .header-right {
@@ -69,6 +71,8 @@ export default {
         align-items: center;
 
         margin: 0 0 0 30px;
+
+        cursor: pointer;
       }
     }
   }

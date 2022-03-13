@@ -172,7 +172,6 @@ export default {
         font-weight: normal;
         color: #ffffff;
 
-        cursor: pointer;
       }
 
       .location-area {
@@ -200,6 +199,8 @@ export default {
           line-height: 32px;
 
           color: #fff;
+
+          cursor: pointer;
 
           &:hover {
             background: rgba(0, 0, 0, 0.08);
@@ -229,6 +230,8 @@ export default {
 
       .category-item {
         margin: 0 24px 0 0;
+
+        cursor: pointer;
       }
 
       & .selected {
@@ -286,6 +289,7 @@ export default {
               height: 40px;
 
               border-radius: 4px;
+              cursor: pointer;
 
               &.reset-button {
                 border: 1px solid #F2074C;
@@ -311,6 +315,16 @@ export default {
             align-items: center;
 
             color: #888284;
+
+            input {
+              cursor: pointer;
+
+            }
+
+            label {
+              cursor: pointer;
+
+            }
           }
         }
       }
@@ -350,6 +364,8 @@ export default {
 
               color: #a0a0a0;
 
+              cursor: pointer;
+
               &:last-child {
                 border: none;
               }
@@ -370,6 +386,9 @@ export default {
             border-radius: 4px;
 
             color: #a0a0a0;
+
+            cursor: pointer;
+
           }
         }
 
@@ -390,6 +409,8 @@ export default {
               .product-item {
                 display: flex;
                 padding: 16px 0;
+
+                cursor: pointer;
 
                 .product-img {
                   width: 152px;
