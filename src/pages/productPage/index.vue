@@ -16,18 +16,17 @@
 
     <div class="product-content">
       <div class="main-category">
-        <div class="category-item selected">모텔</div>
-        <div class="category-item">호텔</div>
-        <div class="category-item">리조트</div>
-        <div class="category-item">게스트하우스</div>
-        <div class="category-item">캠핑</div>
+        <!--        선택 클래스추가 selected-->
+        <div class="category-item" v-for="category in mainCategoryList" :key="category">{{ category }}</div>
       </div>
+
       <div class="category-main-wrapper">
         <div class="sub-category">
           <div class="date-area">
             <div class="date-title">날짜</div>
             <div class="date-picker">데이트피커</div>
           </div>
+
           <div class="category-detail">
             <div class="category-title">상세조건</div>
             <div class="button-area">
@@ -42,14 +41,49 @@
             </div>
           </div>
         </div>
-        <div class="main-content">
-          <div class="sort-category"></div>
-          <!--          top 추천-->
-          <div class="top-advertisement">
 
+        <div class="main-content">
+          <div class="sort-category">
+            <div class="top-sort-area">
+              <div class="top-sort" v-for="category in sortCategoryList" :key="category">{{ category }}</div>
+            </div>
+            <div class="map-btn">지도</div>
           </div>
-          <!--          인기 추천-->
-          <!--          거리순-->
+
+          <div class="product-list">
+            <!--            광고인지 여부 확인 클래스 추가 배경색 변경, ?광고 추가-->
+            <div class="product-area" v-for="productType in productTypeList" :key="productType">
+              <div class="product-type">{{ productType }}</div>
+
+              <div class="product-item-area" v-for="product in productList" :key="product.productName">
+                <div class="product-item">
+                  <div class="product-img">이미지</div>
+
+                  <div class="product-detail">
+                    <div class="product-name-area">
+                      <div class="product-name">{{ product.name }}</div>
+                      <div class="product-rating-area">
+                        <div class="product-rating-score">{{ product.ratingScore }}</div>
+                        <div class="product-rating-string">{{ product.ratingString }}</div>
+                        <div class="product-review-count">({{ product.reviewCount }})</div>
+                      </div>
+
+                      <div class="product-location-area">
+                        <div class="product-distance">{{ product.distance }}</div>
+                        <div class="product-location">{{ product.location }}</div>
+                      </div>
+                    </div>
+                    <div class="product-price-area">
+                      <div class="half-rent-type">대실</div>
+                      <div class="product-price">{{ '25,000' }}원</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -70,15 +104,44 @@ export default {
     return {
       checkBoxData: [],
       checkBoxList: ['대실 예약', '숙박 예약', '50% 할인'],
+      mainCategoryList: ['모텔', '호텔', '리조트', '게스트하우스', '캠핑'],
+      sortCategoryList: ['거리 순', '낮은 가격 순', '높은 가격 순'],
+      productTypeList: ['Top 추천', '인기 추천', '거리 순'],
+      productList: [
+        {
+          name: '수유 다니엘캄파넬라',
+          ratingScore: '9.5',
+          ratingString: '추천해요',
+          reviewCount: '65',
+          distance: '9.15km',
+          location: '강남구 역삼동'
+        },
+        {
+          name: '수유 다니엘캄파넬라',
+          ratingScore: '9.5',
+          ratingString: '추천해요',
+          reviewCount: '65',
+          distance: '9.15km',
+          location: '강남구 역삼동'
+        },
+        {
+          name: '수유 다니엘캄파넬라',
+          ratingScore: '9.5',
+          ratingString: '추천해요',
+          reviewCount: '65',
+          distance: '9.15km',
+          location: '강남구 역삼동'
+        }
+      ],
       isScroll: false,
       headerSize: 0
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.onScroll)
+    document.addEventListener('scroll', this.onScroll)
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
+    document.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     onScroll() {
@@ -108,6 +171,8 @@ export default {
         font-size: 38px;
         font-weight: normal;
         color: #ffffff;
+
+        cursor: pointer;
       }
 
       .location-area {
@@ -157,7 +222,7 @@ export default {
 
       height: 72px;
 
-      border-bottom: 1px solid #9e9e9e;
+      border-bottom: 1px solid #efefef;
 
       font-size: 18px;
       color: #9e9e9e;
@@ -246,8 +311,6 @@ export default {
             align-items: center;
 
             color: #888284;
-
-
           }
         }
       }
@@ -256,15 +319,166 @@ export default {
         flex: 1 0 0; /* 증가너비 감소너비 기본너비 */
 
         width: 742px;
+        height: 40px;
 
-        background-color: aquamarine;
+        //background-color: aquamarine;
 
         .sort-category {
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
+          height: 40px;
+
+          .top-sort-area {
+            flex: 1 0 0; /* 증가너비 감소너비 기본너비 */
+
+            display: flex;
+
+            height: 40px;
+
+            border: 1px solid #efefef;
+
+            .top-sort {
+              flex: 1 0 0; /* 증가너비 감소너비 기본너비 */
+
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              border-right: 1px solid #efefef;
+
+              color: #a0a0a0;
+
+              &:last-child {
+                border: none;
+              }
+            }
+          }
+
+          .map-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 80px;
+            height: 40px;
+
+            margin-left: 8px;
+
+            border: 1px solid #efefef;
+            border-radius: 4px;
+
+            color: #a0a0a0;
+          }
         }
 
-        .top-advertisement {
+        .product-list {
 
+          .product-area {
+
+            .product-type {
+              padding: 23px 0 12px 0;
+
+              font-size: 18px;
+              font-weight: bold;
+              color: rgba(0, 0, 0, 0.56);
+
+            }
+
+            .product-item-area {
+              .product-item {
+                display: flex;
+                padding: 16px 0;
+
+                .product-img {
+                  width: 152px;
+                  background-color: coral;
+                }
+
+                .product-detail {
+                  flex: 1 0 0;
+                  display: flex;
+                  justify-content: space-between;
+                  flex-direction: column;
+
+                  padding-left: 16px;
+
+                  .product-name-area {
+                    padding-bottom: 55px;
+
+                    .product-name {
+                      padding: 8px 0;
+
+                      font-weight: bold;
+                      font-size: 22px;
+                    }
+
+                    .product-rating-area {
+                      display: flex;
+
+                      .product-rating-score {
+                        display: flex;
+                        justify-content: center;
+
+                        padding: 0 3px;
+                        border-radius: 4px;
+                        background-color: #ffa726;
+
+                        color: #ffffff;
+                      }
+
+                      .product-rating-string {
+                        margin: 0 0 0 10px;
+                        font-size: 18px;
+                        color: #ffa726;
+                      }
+
+                      .product-review-count {
+                        margin: 0 0 0 5px;
+                        font-size: 18px;
+                        color: #ffa726;
+                      }
+                    }
+
+                    .product-location-area {
+                      display: flex;
+                      margin: 8px 0 0 0;
+                      font-size: 18px;
+
+                      .product-distance {
+                        padding-right: 8px;
+                        border-right: 1.6px solid #000000;
+                      }
+
+                      .product-location {
+                        padding-left: 8px;
+                      }
+
+                    }
+
+                  }
+
+                  .product-price-area {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    line-height: 20px;
+
+                    font-size: 20px;
+
+                    .half-rent-type {
+                      padding-right: 10px;
+                    }
+
+                    .product-price {
+                      font-weight: bold;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
